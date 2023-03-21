@@ -7,12 +7,12 @@ describe('Тест функции updateCategories', () => {
     it('Удаление категории ', () => {
         const expected: Category[] = ['Для дома', 'Одежда',];
 
-        expect(updateCategories(categoriesMock, 'Электроника' as Category)).toEqual(expected);
+        expect(updateCategories(categoriesMock, 'Электроника')).toEqual(expected);
     });
 
     it('Добавление категории ', () => {
         const categories: Category[] = ['Для дома', 'Одежда',];
 
-        expect(updateCategories(categories, 'Электроника' as Category)).toEqual(categoriesMock);
+        expect(updateCategories(categories, 'Электроника')).toEqual(categoriesMock);
     });
 });

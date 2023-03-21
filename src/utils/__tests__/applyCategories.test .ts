@@ -1,39 +1,37 @@
 import { applyCategories } from '../applyCategories';
 import type { Category, Product } from '../../types';
 
-const productsMock: Product[] = [
-    {
-        id: 1,
-        name: 'Наушники',
-        description: 'Беспроводные наушники',
-        price: 10000,
-        category: 'Электроника',
-    },
-    {
-        id: 2,
-        name: 'Диван',
-        description: 'Красный кожаный диван',
-        price: 200000,
-        category: 'Для дома',
-    },
-    {
-        id: 3,
-        name: 'Платье',
-        description: 'Летнее шифоновое платье',
-        price: 5000,
-        category: 'Одежда',
-    },
-]
+const productsMockHeadphones: Product = {
+    id: 1,
+    name: 'Наушники',
+    description: 'Беспроводные наушники',
+    price: 10000,
+    category: 'Электроника',
+}
+const productsMockSofa: Product = {
+    id: 2,
+    name: 'Диван',
+    description: 'Красный кожаный диван',
+    price: 200000,
+    category: 'Для дома',
+}
+const productsMockDress: Product = {
+    id: 3,
+    name: 'Платье',
+    description: 'Летнее шифоновое платье',
+    price: 5000,
+    category: 'Одежда',
+}
 
 describe('Тест функции applyCategories', () => {
     it.each([
-        [productsMock, ['Электроника'], [
+        [[productsMockHeadphones, productsMockSofa, productsMockDress], ['Электроника'], [
             {
-                ...productsMock[0]
+                ...productsMockHeadphones
             }] as Product[]],
-        [productsMock, ['Для дома', 'Еда'], [
+        [[productsMockHeadphones, productsMockSofa, productsMockDress], ['Для дома', 'Еда'], [
             {
-                ...productsMock[1]
+                ...productsMockSofa
             }] as Product[]]
     ])('Выбор товаров, удовлетворяющих одной категории', (products, categoriesMock, expected) => {
         const categories: Category[] = categoriesMock as Category[];
@@ -42,19 +40,19 @@ describe('Тест функции applyCategories', () => {
     });
 
     it.each([
-        [productsMock, ['Электроника', 'Для дома'], [
+        [[productsMockHeadphones, productsMockSofa, productsMockDress], ['Электроника', 'Для дома'], [
             {
-                ...productsMock[0],
+                ...productsMockHeadphones,
             },
             {
-                ...productsMock[1]
+                ...productsMockSofa
             }] as Product[]],
-        [productsMock, ['Для дома', 'Еда', 'Одежда'], [
+        [[productsMockHeadphones, productsMockSofa, productsMockDress], ['Для дома', 'Еда', 'Одежда'], [
             {
-                ...productsMock[1]
+                ...productsMockSofa
             },
             {
-                ...productsMock[2]
+                ...productsMockDress
             }] as Product[]]
     ])('Выбор товаров, удовлетворяющих нескольким категориям', (products, categoriesMock, expected) => {
         const categories: Category[] = categoriesMock as Category[];
@@ -63,8 +61,8 @@ describe('Тест функции applyCategories', () => {
     });
 
     it('Выбор товаров, если не выбрана ни одна категория', () => {
-        const categories: Category[] = [] as Category[];
+        const categories: Category[] = [];
 
-        expect(applyCategories(productsMock, categories)).toEqual(productsMock);
+        expect(applyCategories([productsMockHeadphones, productsMockSofa, productsMockDress], categories)).toEqual([productsMockHeadphones, productsMockSofa, productsMockDress]);
     });
 });

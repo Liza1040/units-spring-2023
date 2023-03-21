@@ -20,32 +20,36 @@ describe('MainPage test', () => {
     ])('test categories', (category) => {
         it('should render in page', () => {
             const rendered = render(<MainPage/>);
-            const rendered_category = rendered.getAllByText(category).filter(item => item.classList.contains('categories__badge'))[0];
+            const renderedCategory = rendered.getAllByText(category).filter(item => item.classList.contains('categories__badge'))[0];
             
-            expect(rendered_category).toBeInTheDocument();
+            expect(renderedCategory).toBeInTheDocument();
         });
 
         it('should filter by categories', () => {
             const rendered = render(<MainPage/>);
-            const rendered_category = rendered.getAllByText(category).filter(item => item.classList.contains('categories__badge'))[0];
-            fireEvent.click(rendered_category);
+            const renderedCategory = rendered.getAllByText(category).filter(item => item.classList.contains('categories__badge'))[0];
+            fireEvent.click(renderedCategory);
 
             expect(rendered).toMatchSnapshot();
+            expect(renderedCategory).toHaveClass('categories__badge_selected');
         });
     });
 
     it('sort button should render in page', () => {
         const rendered = render(<MainPage/>);
-        const sort_button = rendered.baseElement.querySelector('.sort-button');
+        const sortButton = rendered.baseElement.querySelector('.sort-button');
         
-        expect(sort_button).not.toBe(null);
+        expect(sortButton).not.toBe(null);
+        expect(sortButton).toHaveTextContent(
+            'Сортировать по умолчанию'
+        );
     });
 
     it('test sorting', () => {
         const rendered = render(<MainPage/>);
-        const sort_button = rendered.getAllByRole('button').filter(item => item.classList.contains('sort-button'))[0];
+        const sortButton = rendered.getAllByRole('button').filter(item => item.classList.contains('sort-button'))[0];
         
-        fireEvent.click(sort_button);
+        fireEvent.click(sortButton);
         expect(rendered).toMatchSnapshot();
     });
 });
