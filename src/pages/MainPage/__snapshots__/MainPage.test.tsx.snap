@@ -73,6 +73,7 @@ exports[`MainPage test test categories should filter by categories 1`] = `
           <img
             alt="Настольная лампа"
             class="product-card__image"
+            data-testid="product-card__image"
             src="/lamp.png"
           />
         </div>
@@ -148,6 +149,7 @@ exports[`MainPage test test categories should filter by categories 1`] = `
         <img
           alt="Настольная лампа"
           class="product-card__image"
+          data-testid="product-card__image"
           src="/lamp.png"
         />
       </div>
@@ -477,6 +479,7 @@ exports[`MainPage test test categories should filter by categories 3`] = `
           <img
             alt="IPhone 14 Pro"
             class="product-card__image"
+            data-testid="product-card__image"
             src="/iphone.png"
           />
         </div>
@@ -578,6 +581,7 @@ exports[`MainPage test test categories should filter by categories 3`] = `
         <img
           alt="IPhone 14 Pro"
           class="product-card__image"
+          data-testid="product-card__image"
           src="/iphone.png"
         />
       </div>
@@ -732,6 +736,7 @@ exports[`MainPage test test render page without currentTime 1`] = `
       <img
         alt="IPhone 14 Pro"
         class="product-card__image"
+        data-testid="product-card__image"
         src="/iphone.png"
       />
     </div>
@@ -789,6 +794,7 @@ exports[`MainPage test test render page without currentTime 1`] = `
       <img
         alt="Настольная лампа"
         class="product-card__image"
+        data-testid="product-card__image"
         src="/lamp.png"
       />
     </div>
@@ -895,6 +901,7 @@ exports[`MainPage test test sorting 1`] = `
           <img
             alt="Настольная лампа"
             class="product-card__image"
+            data-testid="product-card__image"
             src="/lamp.png"
           />
         </div>
@@ -978,6 +985,7 @@ exports[`MainPage test test sorting 1`] = `
           <img
             alt="IPhone 14 Pro"
             class="product-card__image"
+            data-testid="product-card__image"
             src="/iphone.png"
           />
         </div>
@@ -1053,6 +1061,7 @@ exports[`MainPage test test sorting 1`] = `
         <img
           alt="Настольная лампа"
           class="product-card__image"
+          data-testid="product-card__image"
           src="/lamp.png"
         />
       </div>
@@ -1136,6 +1145,7 @@ exports[`MainPage test test sorting 1`] = `
         <img
           alt="IPhone 14 Pro"
           class="product-card__image"
+          data-testid="product-card__image"
           src="/iphone.png"
         />
       </div>

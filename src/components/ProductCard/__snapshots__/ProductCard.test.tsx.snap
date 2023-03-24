@@ -1,6 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductCard test should render correctly 1`] = `
+exports[`ProductCard test карточка рендерится без картинки 1`] = `
+<DocumentFragment>
+  <div
+    class="product-card"
+  >
+    <div
+      class="product-card__text"
+    >
+      <h2
+        class="product-card__name"
+      >
+        Костюм гуся
+      </h2>
+      <div
+        class="product-card__description"
+      >
+        Запускаем гуся, работяги
+      </div>
+      <h1
+        class="product-card__price"
+      >
+        1 000 ₽
+      </h1>
+      <div
+        class="product-card__category"
+      >
+        Одежда
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ProductCard test карточка рендерится с картинкой 1`] = `
 <DocumentFragment>
   <div
     class="product-card"
@@ -32,41 +65,9 @@ exports[`ProductCard test should render correctly 1`] = `
     <img
       alt="Костюм гуся"
       class="product-card__image"
+      data-testid="product-card__image"
       src="/lamp.png"
     />
-  </div>
-</DocumentFragment>
-`;
-
-exports[`ProductCard test should render correctly 2`] = `
-<DocumentFragment>
-  <div
-    class="product-card"
-  >
-    <div
-      class="product-card__text"
-    >
-      <h2
-        class="product-card__name"
-      >
-        Костюм гуся
-      </h2>
-      <div
-        class="product-card__description"
-      >
-        Запускаем гуся, работяги
-      </div>
-      <h1
-        class="product-card__price"
-      >
-        1 000 ₽
-      </h1>
-      <div
-        class="product-card__category"
-      >
-        Одежда
-      </div>
-    </div>
   </div>
 </DocumentFragment>
 `;

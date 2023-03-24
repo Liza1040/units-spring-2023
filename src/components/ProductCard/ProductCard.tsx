@@ -23,7 +23,7 @@ export const ProductCard: FC<Product> = ({
                 <div className="product-card__category">{category}</div>
             </div>
             {imgUrl && (
-                <img src={imgUrl} alt={name} className="product-card__image" />
+                <img src={imgUrl} alt={name} className="product-card__image" data-testid="product-card__image"/>
             )}
         </div>
     );

@@ -19,15 +19,19 @@ const defaultProduct: Product = {
 
 afterEach(jest.clearAllMocks);
 describe('ProductCard test', () => {
-    it.each([
-        [{
-            ...defaultProduct,
-            imgUrl: '/lamp.png',
-        }],
-        [{...defaultProduct}],
-    ])('should render correctly', (productMock) => {
-        const rendered = render(<ProductCard key={productMock.id} {...productMock} />);
+    it('карточка рендерится без картинки', () => {
+        const rendered = render(<ProductCard {...defaultProduct} />);
         
+        expect(rendered.queryByTestId('product-card__image')).toBeNull();
+        expect(rendered.asFragment()).toMatchSnapshot();
+    });
+
+    it('карточка рендерится с картинкой', () => {
+        const rendered = render(<ProductCard {...defaultProduct} imgUrl = '/lamp.png' />);
+        
+        const productImg = rendered.getByTestId('product-card__image');
+        expect(productImg).toBeInTheDocument();
+        expect(productImg.getAttribute('src')).toEqual('/lamp.png');
         expect(rendered.asFragment()).toMatchSnapshot();
     });
 
